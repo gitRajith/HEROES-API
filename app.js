@@ -154,7 +154,7 @@ app.delete('/api/heroes/:heroId',(req,res)=>{   //:use for generic parameter
     let indexofHero=heroesArray.indexOf(hero);
 
     heroesArray.splice(indexofHero,1);
-    
+
     console.log(heroesArray)
     res.send(hero);
 
@@ -187,5 +187,7 @@ Delete method
 app.listen(PORT,function(){
     console.log("Listening on port:"+PORT);
 });
+
+//text
 
 
