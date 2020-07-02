@@ -1,4 +1,5 @@
 const express =require('express');
+const { request } = require('express');
 const app = express();
 const PORT=5000;
 
@@ -56,6 +57,27 @@ app.get("/cats",(req,res)=>{  //routs or endpoints
 //****************************** 20-06-29 lec continues...
 
 app.use(express.json()); //enable json  values from the request
+
+const authenticators =require('./middlewares/authenticators');
+
+const mailer =require('./middlewares/emailjob');
+
+
+app.use(authenticators);
+
+app.use(mailer);
+
+
+
+// app.use((req,res,next)=>{                   //middleware
+//     console.log('Authenticating user');
+//     next();
+// });
+
+// app.use((req,res,next)=>{                   //middleware
+//     console.log('Logging user details');
+//     next();
+// });
 
 let heroesArray = [{
     
