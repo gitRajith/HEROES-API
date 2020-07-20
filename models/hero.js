@@ -1,11 +1,23 @@
 const mongoose = require('mongoose');
 
 const heroSchema =new mongoose.Schema({
-    name :String,
-    birthname :  String,
-    movies :String,
+    name :{
+        type :String,
+        minlength:4,
+        maxlength:20,
+        required:true
+    },
+    birthname : String,
+    movies :{
+        type:[String],
+        enum:["Infinity War","Endgame","Iron Man 2","First Avenger"]
+
+    },
     likeCount : Number,
-    imageUrl : String,
+    imageUrl :{
+        type: String,
+        default:"Placeholder Image Link to be updated here..."
+    },
     deceased :Boolean
 
 });
