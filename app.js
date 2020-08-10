@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
 const express =require('express');
 const { request } = require('express');
+const cors=require("cors");
 const app = express();
 const PORT=5000;
 
@@ -15,7 +16,7 @@ const authenticators =require('./middlewares/authenticators');
 
 const mailer =require('./middlewares/emailjob');
 
-
+app.use(cors());
 app.use(authenticators);
 
 app.use(mailer);

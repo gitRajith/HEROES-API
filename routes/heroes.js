@@ -3,18 +3,18 @@ const Hero = require ('../models/hero');   //this is like a class
 const router = express.Router();
 
 
-let heroesArray = [{
+// let heroesArray = [{
     
-    id:1,
-    name:'Captian America'
+//     id:1,
+//     name:'Captian America'
 
-},{
-    id:2,
-    name:'Iron Man'
-},{
-    id:3,
-    name:'Black Widow'
-}];
+// },{
+//     id:2,
+//     name:'Iron Man'
+// },{
+//     id:3,
+//     name:'Black Widow'
+// }];
 
 
 
@@ -39,13 +39,18 @@ router.get('/', async (req,res) => {
   /*6)let heroes = await Hero.find({likeCount :{$nin :[3000,10000]}})
                         .sort({name:'asc'})
                         .select({name:1,deceased:1});  //to get only selected values*/
-    let heroes = await Hero.find()
-                        .or([{likeCount :3000},{likeCount :5000}])
-                        .sort({name:'asc'})
-                        .select({name:1,deceased:1});
-                       // .countDocuments();
-                    //res.send("Count is"+ heroes);
-    
+
+//Last filtering methods
+
+    // let heroes = await Hero.find()
+    //                     .or([{likeCount :3000},{likeCount :5000}])
+    //                     .sort({name:'asc'})
+    //                     .select({name:1,deceased:1});
+    //                    // .countDocuments();
+    //                 //res.send("Count is"+ heroes);
+
+
+    let heroes = await Hero.find();
     res.send(heroes);
  })
  
